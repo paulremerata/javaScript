@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>High or Low</title>
+    <script>
+        var tries=1;
+        var answer=Math.floor((Math.random() * 100) + 1);
+        console.log(answer)
+        function handleKeyPress(e){
+             var key=e.keyCode || e.which;
+              if (key==13){
+                 guess(document.getElementById('number').value);
+              }
+        }
+        function reset(){
+            answer=Math.floor((Math.random() * 100) + 1);
+            document.getElementById("input").disabled=false;
+            document.getElementById("message").innerHTML=""
+            document.getElementById('number').value=""
+            tries=1;
+            document.getElementById("life").innerHTML="Life: 5"
+            console.log(answer);
+            }
+        function guess(number){
+            document.getElementById("life").innerHTML="Life: "+(5-tries)
+            tries+=1;
+            if (tries>5 && number!=answer){
+                document.getElementById("input").disabled=true;
+                document.getElementById("message").innerHTML="GAME OVER! The answer is "+answer
+                }
+            else{
+                if (number<=0 || number>100){
+                        document.getElementById("message").innerHTML="Out of Range!"
+                        }
+                else{if (number==answer){
+                        document.getElementById("message").innerHTML="Correct!"
+                        document.getElementById("input").disabled=true;
+                        }
+                    if(number>answer){
+                        document.getElementById("message").innerHTML="Lower!"
+                    }
+                    if(number<answer){
+                        document.getElementById("message").innerHTML="Higher!"
+                        }
+                    }
+                }
+        }
+    </script>
+</head>
+<body background="http://orig11.deviantart.net/fc42/f/2012/345/2/3/insert_design_here__shirt_print__by_onisti-d5nqkp8.jpg">
+<h1>Guess a number from 1 to 100!</h1   >
+<p id="life">Life: 5</p>
+<input id="number" type="number" min="1" max="100" onkeypress="handleKeyPress(event)" />
+<input type="button" id="input" onclick="guess(document.getElementById('number').value)" value="Guess!">
+<input type="button" id="reset" onclick="reset()" value="Reset">
+<p id="message"></p>
+</body>
+</html>
