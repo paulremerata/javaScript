@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Letter Sorter</title>
+    <script>
+        function asc(list, prev){
+            <!--for (x in list){-->
+                <!--console.log(list[x])-->
+                <!--for (y in x.split("")){-->
+                    <!--console.log(x.split("")[y]))-->
+                    <!--if (!isNaN(x.split("")[y])){alert("Don't enter numbers please!");return;}}-->
+            <!--}-->
+            for (var x=0;x<=list.length-2;x++){
+                if (list[x]>list[x+1]){
+                    temp=list[x];
+                    list[x]=list[x+1];
+                    list[x+1]=temp;
+                }
+            }
+            console.log(list)
+            if (list.join("")!=prev){
+                console.log("yay");
+                asc(list,list.join(""));
+                }
+            else{alert(list);}
+        }
+
+        <!--function des(list, prev){-->
+            <!--for (x in list){-->
+                <!--if (!isNaN(x)){alert("Don't enter numbers please!");return;}-->
+            <!--}-->
+            <!--for (var x=0;x<=list.length-2;x++){-->
+                <!--if (list[x]<list[x+1]){-->
+                    <!--temp=list[x];-->
+                    <!--list[x]=list[x+1];-->
+                    <!--list[x+1]=temp;-->
+                <!--}-->
+            <!--}-->
+            <!--console.log(list)-->
+            <!--if (list.join("")!=prev){-->
+                <!--console.log("yay");-->
+                <!--des(list,list.join(""));-->
+                <!--}-->
+            <!--else{alert(list);}-->
+        <!--}-->
+    </script>
+</head>
+<body>
+<p>Enter the numbers to be sorted(separate them using commas)</p>
+<input id="numbers" type="text">
+<input type="button" value="Sort" onclick="asc(getElementById('numbers').value.split(' ').join('').split(','),getElementById('numbers').value.split(' ').join(''))" >
+<!--<input type="button" value="Descending" onclick="des(getElementById('numbers').value.split(' ').join('').split(','),getElementById('numbers').value.split(' ').join(''))" >-->
+</body>
+</html>

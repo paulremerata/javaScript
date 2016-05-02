@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+
+</head>
+<body>
+Name:<input type="text" id="name" onkeyup="verify(this)">
+President:
+<select id="pres">
+  <option value="Du30">Du30</option>
+  <option value="Miriam">Miriam</option>
+  <option value="Roxas">Roxas(Please don't)</option>
+  <option value="Binay">Binay</option>
+  <option value="Poe">Poe</option>
+</select>
+<input type="button" id="vote" value="Vote!" onclick="vote(document.getElementById('pres').value)">
+
+
+<script>
+        document.getElementById("vote").disabled=true;
+        var presidents=["Du30","Miriam","Roxas","Binay","Poe"];
+        var votes=[0,0,0,0,0];
+        var voters=["cyril", "james", "selds", "jim"]
+        var count=0
+        function vote(pres){
+            count+=1
+            votes[presidents.indexOf(pres)]+=1;
+            console.log(votes)
+            voters[voters.indexOf(document.getElementById('name').value.toLowerCase())]=""
+            document.getElementById("vote").disabled=true;
+            if (count==4){
+                alert(presidents[votes.indexOf(array.getMaxOfArray(votes))]);
+            }
+            console.log(presidents[votes.indexOf(array.getMaxOfArray(votes))])
+
+        }
+        function verify(name){
+            console.log(voters.indexOf(name.value.toLowerCase()))
+            if (voters.indexOf(name.value.toLowerCase())>=0){
+                document.getElementById("vote").disabled=false;
+            }
+            else{
+                document.getElementById("vote").disabled=true;
+            }
+        }
+
+
+    </script>
+</body>
+</html>
