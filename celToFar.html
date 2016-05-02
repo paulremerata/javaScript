@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <script>
+    function temperature(there){
+      if (there=='fahrenheit'){
+          document.getElementById(there).value=9*document.getElementById("celsius").value/5+32
+          }
+      else{
+          document.getElementById(there).value=(document.getElementById("fahrenheit").value-32)*5/9
+          }
+    }
+  </script>
+</head>
+<body>
+Celsius:<input type="number" id="celsius" onkeyup="temperature('fahrenheit')"/><br/>
+Fahrenheit:<input type="number" id="fahrenheit" onkeyup="temperature('celsius')">
+</body>
+</html>
