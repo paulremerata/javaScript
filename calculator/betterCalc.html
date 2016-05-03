@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        input{
+            height: 40px; width:40px;
+            background-color:#ECECEC;
+            color:#333333;
+            border-radius: 5px;
+             cursor:crosshair;
+        }
+        #number{
+            width: 170px;
+            border: 1px solid #909190;
+            background-color:#C4D7C4;
+            font: 100%/1.618 sans-serif;
+            cursor:default;
+            text-align:right;
+        }
+    </style>
+    <title>Calculator</title>
+</head>
+<body>
+<center>
+    <div style="border-radius: 25px;border: 2px solid silver; height: 240px; width:180px;padding: 20px;background-color:#545454;">
+        <input type="number" id="number" max="9999999"><br>
+        <div style="padding:5px;"></div>
+        <input type="button" value="7"  onclick="document.getElementById('number').value+=this.value"   >
+        <input type="button" value="8"  onclick="document.getElementById('number').value+=this.value"   >
+        <input type="button" value="9"  onclick="document.getElementById('number').value+=this.value"   >
+        <input type="button" id="divide" value="/" onclick="operate(this.value,document.getElementById('number').value)"><br>
+        <div style="padding:5px;"></div>
+        <input type="button" value="4"  onclick="document.getElementById('number').value+=this.value"   >
+        <input type="button" value="5"  onclick="document.getElementById('number').value+=this.value"   >
+        <input type="button" value="6"  onclick="document.getElementById('number').value+=this.value"   >
+        <input type="button" id="times"  value="*" onclick="operate(this.value,document.getElementById('number').value)" ><br>
+        <div style="padding:5px;"></div>
+        <input type="button" value="1"  onclick="document.getElementById('number').value+=this.value"   >
+        <input type="button" value="2"  onclick="document.getElementById('number').value+=this.value"   >
+        <input type="button" value="3"  onclick="document.getElementById('number').value+=this.value"   >
+        <input type="button" id="minus"  value="-" onclick="operate(this.value,document.getElementById('number').value)" ><br>
+        <div style="padding:5px;"></div>
+        <input type="button" value="0"  onclick="document.getElementById('number').value+=this.value"   >
+        <input type="button" value="c"  onclick="operate('',0)"   >
+        <input type="button" id="plus"   value="+" onclick="operate(this.value,document.getElementById('number').value)"   >
+        <input type="button" id="equals" value="=" onclick="answer(document.getElementById('number').value)">
+    </div>
+</center>
+<script>
+    var first_num=0;
+    var operator;
+    function operate(ope,num){
+        operator=ope;
+        first_num=num
+        document.getElementById('number').value=""
+        }
+    function answer(num){
+        switch(operator){
+        case "+":
+            document.getElementById('number').value=parseInt(first_num) +parseInt(num)
+            break;
+        case "-":
+            document.getElementById('number').value=parseInt(first_num) -parseInt(num)
+            break;
+        case "*":
+            document.getElementById('number').value=parseInt(first_num) *parseInt(num)
+            break;
+        case "/":
+            document.getElementById('number').value=parseInt(first_num) /parseInt(num)
+            break;
+        }
+    }
+</script>
+</body>
+</html>
