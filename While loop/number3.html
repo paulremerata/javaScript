@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center><input type="number" onkeyup="tree(this.value)"></p></center>
+<center><p id="test"></p></center>
+<script>
+function tree(i){
+        document.getElementById("test").innerHTML=""
+        var x = 1;
+        do {
+                var j=1;
+                while (j<=x){
+                        document.getElementById("test").innerHTML +="* " ;
+                        j++;}
+                document.getElementById("test").innerHTML +="<br>"
+                x++;
+                }
+         while (i >= x);
+}
+</script>
+</body>
+</html>
