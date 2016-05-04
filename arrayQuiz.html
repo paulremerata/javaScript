@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div{
+            border: 1px solid black;
+            height: 50px; width:200px;
+            padding: 20px;
+            font-size: 10px;
+            display: none;
+            background-color:black;
+            color:white;
+        }
+    </style>
+    <title>Quiz</title>
+</head>
+<body id>
+<center>
+        <div id="d1" style="display:block">1.What element begins with letter K?<br>
+            <input type="text" id="num1" onchange="answer[0]=(this.value.split(' ').join('').toLowerCase())">
+            <input type="button" value="Next" onclick="document.getElementById('d1').style.display='none';document.getElementById('d2').style.display='block'"></div>
+        <div id="d2">2.What continent has the fewest flowering plants?<br>
+            <input type="text" id="num2" onchange="answer[1]=(this.value.split(' ').join('').toLowerCase())">
+            <input type="button" value="Next" onclick="document.getElementById('d2').style.display='none';document.getElementById('d3').style.display='block'"></div>
+        <div id="d3">3.Name the world's biggest island:<br>
+            <input type="text" id="num3" onchange="answer[2]=(this.value.split(' ').join('').toLowerCase())">
+            <input type="button" value="Next" onclick="document.getElementById('d3').style.display='none';document.getElementById('d4').style.display='block'"></div>
+        <div id="d4">4.Which is the largest state in the US?<br>
+            <input type="text" id="num4" onchange="answer[3]=(this.value.split(' ').join('').toLowerCase())">
+        <input type="button" value="Next" onclick="document.getElementById('d4').style.display='none';document.getElementById('d5').style.display='block'"></div>
+        <div id="d5">5.What Shakespeare play asks: "To be or not to be"?<br>
+            <input type="text" id="num5" onchange="answer[4]=(this.value.split(' ').join('').toLowerCase())">
+        <input type="button" value="Next" onclick="document.getElementById('d5').style.display='none';document.getElementById('d6').style.display='block'"></div>
+        <div id="d6">6.What mountain is the tallest point in Greece?<br>
+            <input type="text" id="num6" onchange="answer[5]=(this.value.split(' ').join('').toLowerCase())">
+        <input type="button" value="Next" onclick="document.getElementById('d6').style.display='none';document.getElementById('d7').style.display='block'"></div>
+        <div id="d7">7.The zodiac sign "Taurus" refers to what animal?<br>
+            <input type="text" id="num7" onchange="answer[6]=(this.value.split(' ').join('').toLowerCase())">
+        <input type="button" value="Next" onclick="document.getElementById('d7').style.display='none';document.getElementById('d8').style.display='block'"></div>
+        <div id="d8">8.What word becomes shorter by adding two letters to it?<br>
+            <input type="text" id="num8" onchange="answer[7]=(this.value.split(' ').join('').toLowerCase())">
+        <input type="button" value="Next" onclick="document.getElementById('d8').style.display='none';document.getElementById('d9').style.display='block'"></div>
+        <div id="d9">9.What major river runs through Cairo?<br>
+            <input type="text" id="num9" onchange="answer[8]=(this.value.split(' ').join('').toLowerCase())">
+        <input type="button" value="Next" onclick="document.getElementById('d9').style.display='none';document.getElementById('d10').style.display='block'"></div>
+        <div id="d10">10.Blacked eyed peas are not peas, what are they?<br>
+            <input type="text" id="num10" onchange="answer[9]=(this.value.split(' ').join('').toLowerCase())">
+        <input type="button" value="Submit" onclick="submit()"></div>
+</center>
+<script>
+    answer=[0,0,0,0,0,0,0,0,0,0];
+    answer_key=["krypton","antartica","greenland","alaska","hamlet","olympus","bull","short","nile","beans"];
+    function submit(){
+        score=0;
+        for (x in answer){
+            if (answer[x]==answer_key[x])score+=1;
+        }
+        alert("Your score is "+score)
+    }
+</script>
+</body>
+</html>

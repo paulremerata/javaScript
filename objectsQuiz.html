@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Objects</title>
+<script>
+        listName=[]
+        list=[];
+        function human(){
+            this.name=document.getElementById('name').value
+            this.add=document.getElementById('add').value
+            this.email=document.getElementById('email').value
+            this.number=document.getElementById('number').value
+        }
+        function personMaker(){
+            field=document.getElementsByClassName('field')
+            var person={}
+            list.push(person=new human())
+            listName.push(person.name)
+            for (x in field){
+            field[x].value=" "
+            }
+        }
+        function print(){
+            document.getElementById('info').innerHTML="Name: "+list[listName.indexOf(document.getElementById('search').value)].name+"<br>"
+            document.getElementById('info').innerHTML+="Address: "+list[listName.indexOf(document.getElementById('search').value)].add+"<br>"
+            document.getElementById('info').innerHTML+="Email: "+list[listName.indexOf(document.getElementById('search').value)].email+"<br>"
+            document.getElementById('info').innerHTML+="Contact Number: "+list[listName.indexOf(document.getElementById('search').value)].number+"<br>"
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="search">
+<input type="button" id="print" onclick="print()" value="Search">
+<table style="border: 1px solid black;">
+<tr><td>Name:</td><td><input class="field" id="name"></td></tr>
+<tr><td>Address:</td><td><input class="field" id="add"></td></tr>
+<tr><td>Email address:</td><td><input class="field" id="email"></td></tr>
+<tr><td>Contact Number:</td><td><input class="field" id="number"></td></tr>
+<tr><td><input type="button" id="submit" onclick="personMaker()" value="Save"></td></tr>
+</table>
+<br>
+
+<p id="info"></p>
+</body>
+</html>

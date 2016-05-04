@@ -22,7 +22,7 @@
 </head>
 <body>
 <center>
-    <div style="border-radius: 25px;border: 2px solid silver; height: 240px; width:180px;padding: 20px;background-color:#545454;">
+    <div id="calcu" style="border-radius: 25px;border: 2px solid silver; height: 240px; width:173px;padding: 20px;background-color:#545454;">
         <input type="number" id="number" max="9999999"><br>
         <div style="padding:5px;"></div>
         <input type="button" value="7"  onclick="document.getElementById('number').value+=this.value"   >
@@ -43,8 +43,9 @@
         <input type="button" value="0"  onclick="document.getElementById('number').value+=this.value"   >
         <input type="button" value="c"  onclick="operate('',0)"   >
         <input type="button" id="plus"   value="+" onclick="operate(this.value,document.getElementById('number').value)"   >
-        <input type="button" id="equals" value="=" onclick="answer(document.getElementById('number').value)">
+        <input type="button" id="equals" value="=" onclick="answer(document.getElementById('number').value)" style="background-color:#D89841;border: 1px solid #D89841;color:white;">
     </div>
+
 </center>
 <script>
     var first_num=0;
