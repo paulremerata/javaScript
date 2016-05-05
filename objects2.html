@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<title>Don't Vote Mar</title>
+<body><center>
+Who are you going to vote for President?<br>
+<input type="text" id="userChoice">
+<input type="button" value="Submit" onclick="submit(document.getElementById('userChoice').value.toLowerCase())"><br>
+<table style="border: 2px solid silver;">
+    <thead>
+     <th>Id</th><th>Name</th><th>Age</th>
+  </thead>
+<tr><td>1 </td><td>Rodrigo Duterte</td><td> 70 </td></tr>
+<tr><td>2 </td><td>Grace Poe</td><td> 50</td></tr>
+<tr><td>3 </td><td>Miriam Santiago</td><td> 72</td></tr>
+<tr><td>4 </td><td>Mar Roxas</td><td> 65</td></tr>
+<tr><td>5 </td><td>Jejomar Binay</td><td> 75</td></tr>
+</table>
+</center>
+<script>
+        function Candidate(id,name,age,prompt){
+            this.name=name;
+            this.id=id;
+            this.age=age;
+            this.print=function(){
+                alert(prompt);
+            }
+        }
+        var candidates={
+            "rodrigo duterte":new Candidate(1,"Rodrigo Duterte",70,"Leadership"),
+            "grace poe":new Candidate(2,"Grace Poe",50,"Congratulations, you have chosen a valid candidate"),
+            "miriam santiago":new Candidate(3,"Miriam Santiago",72,"Intelligence"),
+            "mar roxas":new Candidate(4,"Mar Roxas",65,'I am sorry but your candidate is blacklisted'),
+            "jejomar binay":new Candidate(5,"Jejomar Binay",75,'I am sorry but your candidate is blacklisted')
+        }
+        function submit(userChoice){    
+            if (candidates.hasOwnProperty(userChoice))
+                candidates[userChoice].print();
+            else alert("Enter a valid Candidate");
+        }
+    </script>
+</body>
+</html>
